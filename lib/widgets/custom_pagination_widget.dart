@@ -92,7 +92,7 @@ class CustomPaginationWidget extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(8),
                                   color: pages[i] != '...' &&
                                           currentPage == pages[i]
-                                      ? Colors.greenAccent.withOpacity(0.4)
+                                      ? Colors.white.withOpacity(0.4)
                                       : Theme.of(context).cardTheme.color,
                                 ),
                                 child: Center(
@@ -102,8 +102,12 @@ class CustomPaginationWidget extends StatelessWidget {
                                         : "${pages[i] + 1}",
                                     style: pages[i] != '...' &&
                                             currentPage == pages[i]
-                                        ? const TextStyle(color: Colors.white)
-                                        : const TextStyle(color: Colors.white),
+                                        ? const TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold)
+                                        : const TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
                                   ),
                                 ),
                               ),
