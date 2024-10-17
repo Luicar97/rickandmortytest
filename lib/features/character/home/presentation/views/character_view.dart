@@ -7,8 +7,8 @@ import 'package:trumed/widgets/custom_pagination_widget.dart';
 import 'package:trumed/widgets/custom_text_field_widget.dart';
 import 'package:trumed/widgets/custom_text_title_widget.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class CharacterView extends StatelessWidget {
+  const CharacterView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -92,30 +92,34 @@ class LoginView extends StatelessWidget {
                                   runSpacing: 16,
                                   children: [
                                     ...data.results.map((result) {
-                                      return CharacterCardWidget(
-                                        image: result.image,
-                                        species: result.species,
-                                        name: result.name,
-                                        status: result.status,
+                                      return GestureDetector(
+                                        onTap: () {
+                                          Navigator.of(context)
+                                              .pushNamed('/details');
+                                        },
+                                        child: CharacterCardWidget(
+                                          image: result.image,
+                                          species: result.species,
+                                          name: result.name,
+                                          status: result.status,
+                                        ),
                                       );
                                     }),
                                   ],
                                 ),
-                                Container(
-                                  child: CustomPaginationWidget(
-                                    numberOfPages: 5,
-                                    totalPages: data.info.pages,
-                                    currentPage:
-                                        context.read<CharacterListBloc>().page,
-                                    changePage: (index) {
-                                      context.read<CharacterListBloc>().add(
-                                          CharacterListEvent.changePageApi(
-                                              index + 1, ''));
+                                CustomPaginationWidget(
+                                  numberOfPages: 5,
+                                  totalPages: data.info.pages,
+                                  currentPage:
+                                      context.read<CharacterListBloc>().page,
+                                  changePage: (index) {
+                                    context.read<CharacterListBloc>().add(
+                                        CharacterListEvent.changePageApi(
+                                            index + 1, ''));
 
-                                      context.read<CharacterListBloc>().add(
-                                          CharacterListEvent.changePage(index));
-                                    },
-                                  ),
+                                    context.read<CharacterListBloc>().add(
+                                        CharacterListEvent.changePage(index));
+                                  },
                                 ),
                                 const SizedBox(
                                   height: 60,
