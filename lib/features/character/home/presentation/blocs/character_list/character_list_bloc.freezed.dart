@@ -19,32 +19,50 @@ mixin _$CharacterListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(int page) changePage,
+    required TResult Function(int page, String search) changePageApi,
+    required TResult Function(String search) searchCharacter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(int page)? changePage,
+    TResult? Function(int page, String search)? changePageApi,
+    TResult? Function(String search)? searchCharacter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(int page)? changePage,
+    TResult Function(int page, String search)? changePageApi,
+    TResult Function(String search)? searchCharacter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_ChangePage value) changePage,
+    required TResult Function(_ChangePageApi value) changePageApi,
+    required TResult Function(_SearchCharacter value) searchCharacter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_ChangePage value)? changePage,
+    TResult? Function(_ChangePageApi value)? changePageApi,
+    TResult? Function(_SearchCharacter value)? searchCharacter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ChangePage value)? changePage,
+    TResult Function(_ChangePageApi value)? changePageApi,
+    TResult Function(_SearchCharacter value)? searchCharacter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +125,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(int page) changePage,
+    required TResult Function(int page, String search) changePageApi,
+    required TResult Function(String search) searchCharacter,
   }) {
     return started();
   }
@@ -115,6 +136,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(int page)? changePage,
+    TResult? Function(int page, String search)? changePageApi,
+    TResult? Function(String search)? searchCharacter,
   }) {
     return started?.call();
   }
@@ -123,6 +147,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(int page)? changePage,
+    TResult Function(int page, String search)? changePageApi,
+    TResult Function(String search)? searchCharacter,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -135,6 +162,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_ChangePage value) changePage,
+    required TResult Function(_ChangePageApi value) changePageApi,
+    required TResult Function(_SearchCharacter value) searchCharacter,
   }) {
     return started(this);
   }
@@ -143,6 +173,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_ChangePage value)? changePage,
+    TResult? Function(_ChangePageApi value)? changePageApi,
+    TResult? Function(_SearchCharacter value)? searchCharacter,
   }) {
     return started?.call(this);
   }
@@ -151,6 +184,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ChangePage value)? changePage,
+    TResult Function(_ChangePageApi value)? changePageApi,
+    TResult Function(_SearchCharacter value)? searchCharacter,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -165,12 +201,458 @@ abstract class _Started implements CharacterListEvent {
 }
 
 /// @nodoc
+abstract class _$$ChangePageImplCopyWith<$Res> {
+  factory _$$ChangePageImplCopyWith(
+          _$ChangePageImpl value, $Res Function(_$ChangePageImpl) then) =
+      __$$ChangePageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int page});
+}
+
+/// @nodoc
+class __$$ChangePageImplCopyWithImpl<$Res>
+    extends _$CharacterListEventCopyWithImpl<$Res, _$ChangePageImpl>
+    implements _$$ChangePageImplCopyWith<$Res> {
+  __$$ChangePageImplCopyWithImpl(
+      _$ChangePageImpl _value, $Res Function(_$ChangePageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? page = null,
+  }) {
+    return _then(_$ChangePageImpl(
+      null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangePageImpl implements _ChangePage {
+  const _$ChangePageImpl(this.page);
+
+  @override
+  final int page;
+
+  @override
+  String toString() {
+    return 'CharacterListEvent.changePage(page: $page)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangePageImpl &&
+            (identical(other.page, page) || other.page == page));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, page);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangePageImplCopyWith<_$ChangePageImpl> get copyWith =>
+      __$$ChangePageImplCopyWithImpl<_$ChangePageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(int page) changePage,
+    required TResult Function(int page, String search) changePageApi,
+    required TResult Function(String search) searchCharacter,
+  }) {
+    return changePage(page);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(int page)? changePage,
+    TResult? Function(int page, String search)? changePageApi,
+    TResult? Function(String search)? searchCharacter,
+  }) {
+    return changePage?.call(page);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(int page)? changePage,
+    TResult Function(int page, String search)? changePageApi,
+    TResult Function(String search)? searchCharacter,
+    required TResult orElse(),
+  }) {
+    if (changePage != null) {
+      return changePage(page);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ChangePage value) changePage,
+    required TResult Function(_ChangePageApi value) changePageApi,
+    required TResult Function(_SearchCharacter value) searchCharacter,
+  }) {
+    return changePage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ChangePage value)? changePage,
+    TResult? Function(_ChangePageApi value)? changePageApi,
+    TResult? Function(_SearchCharacter value)? searchCharacter,
+  }) {
+    return changePage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ChangePage value)? changePage,
+    TResult Function(_ChangePageApi value)? changePageApi,
+    TResult Function(_SearchCharacter value)? searchCharacter,
+    required TResult orElse(),
+  }) {
+    if (changePage != null) {
+      return changePage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangePage implements CharacterListEvent {
+  const factory _ChangePage(final int page) = _$ChangePageImpl;
+
+  int get page;
+  @JsonKey(ignore: true)
+  _$$ChangePageImplCopyWith<_$ChangePageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangePageApiImplCopyWith<$Res> {
+  factory _$$ChangePageApiImplCopyWith(
+          _$ChangePageApiImpl value, $Res Function(_$ChangePageApiImpl) then) =
+      __$$ChangePageApiImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int page, String search});
+}
+
+/// @nodoc
+class __$$ChangePageApiImplCopyWithImpl<$Res>
+    extends _$CharacterListEventCopyWithImpl<$Res, _$ChangePageApiImpl>
+    implements _$$ChangePageApiImplCopyWith<$Res> {
+  __$$ChangePageApiImplCopyWithImpl(
+      _$ChangePageApiImpl _value, $Res Function(_$ChangePageApiImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? page = null,
+    Object? search = null,
+  }) {
+    return _then(_$ChangePageApiImpl(
+      null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == search
+          ? _value.search
+          : search // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangePageApiImpl implements _ChangePageApi {
+  const _$ChangePageApiImpl(this.page, this.search);
+
+  @override
+  final int page;
+  @override
+  final String search;
+
+  @override
+  String toString() {
+    return 'CharacterListEvent.changePageApi(page: $page, search: $search)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangePageApiImpl &&
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.search, search) || other.search == search));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, page, search);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangePageApiImplCopyWith<_$ChangePageApiImpl> get copyWith =>
+      __$$ChangePageApiImplCopyWithImpl<_$ChangePageApiImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(int page) changePage,
+    required TResult Function(int page, String search) changePageApi,
+    required TResult Function(String search) searchCharacter,
+  }) {
+    return changePageApi(page, search);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(int page)? changePage,
+    TResult? Function(int page, String search)? changePageApi,
+    TResult? Function(String search)? searchCharacter,
+  }) {
+    return changePageApi?.call(page, search);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(int page)? changePage,
+    TResult Function(int page, String search)? changePageApi,
+    TResult Function(String search)? searchCharacter,
+    required TResult orElse(),
+  }) {
+    if (changePageApi != null) {
+      return changePageApi(page, search);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ChangePage value) changePage,
+    required TResult Function(_ChangePageApi value) changePageApi,
+    required TResult Function(_SearchCharacter value) searchCharacter,
+  }) {
+    return changePageApi(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ChangePage value)? changePage,
+    TResult? Function(_ChangePageApi value)? changePageApi,
+    TResult? Function(_SearchCharacter value)? searchCharacter,
+  }) {
+    return changePageApi?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ChangePage value)? changePage,
+    TResult Function(_ChangePageApi value)? changePageApi,
+    TResult Function(_SearchCharacter value)? searchCharacter,
+    required TResult orElse(),
+  }) {
+    if (changePageApi != null) {
+      return changePageApi(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangePageApi implements CharacterListEvent {
+  const factory _ChangePageApi(final int page, final String search) =
+      _$ChangePageApiImpl;
+
+  int get page;
+  String get search;
+  @JsonKey(ignore: true)
+  _$$ChangePageApiImplCopyWith<_$ChangePageApiImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SearchCharacterImplCopyWith<$Res> {
+  factory _$$SearchCharacterImplCopyWith(_$SearchCharacterImpl value,
+          $Res Function(_$SearchCharacterImpl) then) =
+      __$$SearchCharacterImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String search});
+}
+
+/// @nodoc
+class __$$SearchCharacterImplCopyWithImpl<$Res>
+    extends _$CharacterListEventCopyWithImpl<$Res, _$SearchCharacterImpl>
+    implements _$$SearchCharacterImplCopyWith<$Res> {
+  __$$SearchCharacterImplCopyWithImpl(
+      _$SearchCharacterImpl _value, $Res Function(_$SearchCharacterImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? search = null,
+  }) {
+    return _then(_$SearchCharacterImpl(
+      null == search
+          ? _value.search
+          : search // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchCharacterImpl implements _SearchCharacter {
+  const _$SearchCharacterImpl(this.search);
+
+  @override
+  final String search;
+
+  @override
+  String toString() {
+    return 'CharacterListEvent.searchCharacter(search: $search)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchCharacterImpl &&
+            (identical(other.search, search) || other.search == search));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, search);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchCharacterImplCopyWith<_$SearchCharacterImpl> get copyWith =>
+      __$$SearchCharacterImplCopyWithImpl<_$SearchCharacterImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(int page) changePage,
+    required TResult Function(int page, String search) changePageApi,
+    required TResult Function(String search) searchCharacter,
+  }) {
+    return searchCharacter(search);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(int page)? changePage,
+    TResult? Function(int page, String search)? changePageApi,
+    TResult? Function(String search)? searchCharacter,
+  }) {
+    return searchCharacter?.call(search);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(int page)? changePage,
+    TResult Function(int page, String search)? changePageApi,
+    TResult Function(String search)? searchCharacter,
+    required TResult orElse(),
+  }) {
+    if (searchCharacter != null) {
+      return searchCharacter(search);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ChangePage value) changePage,
+    required TResult Function(_ChangePageApi value) changePageApi,
+    required TResult Function(_SearchCharacter value) searchCharacter,
+  }) {
+    return searchCharacter(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ChangePage value)? changePage,
+    TResult? Function(_ChangePageApi value)? changePageApi,
+    TResult? Function(_SearchCharacter value)? searchCharacter,
+  }) {
+    return searchCharacter?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ChangePage value)? changePage,
+    TResult Function(_ChangePageApi value)? changePageApi,
+    TResult Function(_SearchCharacter value)? searchCharacter,
+    required TResult orElse(),
+  }) {
+    if (searchCharacter != null) {
+      return searchCharacter(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchCharacter implements CharacterListEvent {
+  const factory _SearchCharacter(final String search) = _$SearchCharacterImpl;
+
+  String get search;
+  @JsonKey(ignore: true)
+  _$$SearchCharacterImplCopyWith<_$SearchCharacterImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$CharacterListState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(CharacterListEntity characterList) success,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -178,7 +660,7 @@ mixin _$CharacterListState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(CharacterListEntity characterList)? success,
     TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -186,7 +668,7 @@ mixin _$CharacterListState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(CharacterListEntity characterList)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -276,7 +758,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(CharacterListEntity characterList) success,
     required TResult Function(String error) error,
   }) {
     return inital();
@@ -287,7 +769,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(CharacterListEntity characterList)? success,
     TResult? Function(String error)? error,
   }) {
     return inital?.call();
@@ -298,7 +780,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(CharacterListEntity characterList)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -390,7 +872,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(CharacterListEntity characterList) success,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -401,7 +883,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(CharacterListEntity characterList)? success,
     TResult? Function(String error)? error,
   }) {
     return loading?.call();
@@ -412,7 +894,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(CharacterListEntity characterList)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -469,6 +951,8 @@ abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CharacterListEntity characterList});
 }
 
 /// @nodoc
@@ -478,36 +962,61 @@ class __$$SuccessImplCopyWithImpl<$Res>
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? characterList = null,
+  }) {
+    return _then(_$SuccessImpl(
+      null == characterList
+          ? _value.characterList
+          : characterList // ignore: cast_nullable_to_non_nullable
+              as CharacterListEntity,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl();
+  const _$SuccessImpl(this.characterList);
+
+  @override
+  final CharacterListEntity characterList;
 
   @override
   String toString() {
-    return 'CharacterListState.success()';
+    return 'CharacterListState.success(characterList: $characterList)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SuccessImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessImpl &&
+            (identical(other.characterList, characterList) ||
+                other.characterList == characterList));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, characterList);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(CharacterListEntity characterList) success,
     required TResult Function(String error) error,
   }) {
-    return success();
+    return success(characterList);
   }
 
   @override
@@ -515,10 +1024,10 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(CharacterListEntity characterList)? success,
     TResult? Function(String error)? error,
   }) {
-    return success?.call();
+    return success?.call(characterList);
   }
 
   @override
@@ -526,12 +1035,12 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(CharacterListEntity characterList)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success();
+      return success(characterList);
     }
     return orElse();
   }
@@ -575,7 +1084,13 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements CharacterListState {
-  const factory _Success() = _$SuccessImpl;
+  const factory _Success(final CharacterListEntity characterList) =
+      _$SuccessImpl;
+
+  CharacterListEntity get characterList;
+  @JsonKey(ignore: true)
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -644,7 +1159,7 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(CharacterListEntity characterList) success,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -655,7 +1170,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(CharacterListEntity characterList)? success,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -666,7 +1181,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(CharacterListEntity characterList)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {

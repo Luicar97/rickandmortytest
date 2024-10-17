@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:trumed/features/character/data/models/character_list_model.dart';
+import 'package:trumed/features/character/home/data/models/character_list_model.dart';
 
 // part 'character_datasource.g.dart';
 
@@ -24,8 +24,14 @@ class CharacterRemoteDataSource {
   ///
   final String baseUrl;
 
-  Future<CharacterListModel> characterList() async {
-    final response = await dio.get('$baseUrl/character?name=rick');
+  Future<CharacterListModel> characterList(
+      {Map<String, dynamic>? params}) async {
+    print(params);
+    print('params');
+    final response = await dio.get(
+      '$baseUrl/character',
+      queryParameters: params,
+    );
     print(response.data);
     return CharacterListModel.fromJson(response.data);
   }

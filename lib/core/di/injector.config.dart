@@ -12,12 +12,13 @@ import 'package:dio/dio.dart' as _i7;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../features/character/data/repository/character_repository_impl.dart'
+import '../../features/character/home/data/repository/character_repository_impl.dart'
     as _i8;
-import '../../features/character/domain/repository/character_repository.dart'
+import '../../features/character/home/domain/repository/character_repository.dart'
     as _i4;
-import '../../features/character/domain/usecase/character_usecase.dart' as _i3;
-import '../../features/character/presentation/blocs/character_list/character_list_bloc.dart'
+import '../../features/character/home/domain/usecase/character_usecase.dart'
+    as _i3;
+import '../../features/character/home/presentation/blocs/character_list/character_list_bloc.dart'
     as _i6;
 import '../network/config.dart' as _i5;
 import '../network/dio_provider.dart' as _i9;

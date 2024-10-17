@@ -5,7 +5,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'dart:convert';
 
-import 'package:trumed/features/character/domain/entity/character_list_entity.dart';
+import 'package:trumed/features/character/home/domain/entity/character_list_entity.dart';
 
 part 'character_list_model.freezed.dart';
 part 'character_list_model.g.dart';

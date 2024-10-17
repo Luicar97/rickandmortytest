@@ -37,7 +37,7 @@ dependencies:
   equatable: ^2.0.3
   injectable: ^2.1.1
   json_serializable: ^6.6.1
-  http: ^0.13.5
+  http: ^1.0.0
   meta: ^1.7.0
   flutter:
     sdk: flutter

@@ -9,7 +9,7 @@ class CustomTextTitleWidget extends StatelessWidget {
     return Text(
       title,
       style: const TextStyle(
-        fontSize: 20,
+        fontSize: 24,
         fontWeight: FontWeight.bold,
       ),
     );

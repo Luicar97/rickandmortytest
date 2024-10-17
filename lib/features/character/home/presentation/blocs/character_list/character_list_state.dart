@@ -6,7 +6,8 @@ class CharacterListState with _$CharacterListState {
 
   const factory CharacterListState.loading() = _Loading;
 
-  const factory CharacterListState.success() = _Success;
+  const factory CharacterListState.success(CharacterListEntity characterList) =
+      _Success;
 
   const factory CharacterListState.error(String error) = _Error;
 }
