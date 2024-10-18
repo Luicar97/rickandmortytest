@@ -39,6 +39,7 @@ dependencies:
   json_serializable: ^6.6.1
   http: ^1.0.0
   meta: ^1.7.0
+  sqflite: ^2.4.0
   flutter:
     sdk: flutter
   flutter_localizations:

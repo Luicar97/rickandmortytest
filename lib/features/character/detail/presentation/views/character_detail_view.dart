@@ -20,7 +20,9 @@ class CharacterDetailView extends StatelessWidget {
           Icons.favorite,
           color: Color.fromRGBO(39, 43, 51, 1),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/favorite');
+        },
       ),
       body: BlocProvider(
         create: (context) => GetIt.I.get<DetailCharacterBloc>()
