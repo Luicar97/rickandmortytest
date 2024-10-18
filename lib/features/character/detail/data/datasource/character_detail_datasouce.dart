@@ -1,19 +1,8 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
-import 'package:retrofit/retrofit.dart';
 import 'package:trumed/features/character/detail/data/models/character_detail_model.dart';
-import 'package:trumed/features/character/home/data/models/character_list_model.dart';
-
-// part 'character_datasource.g.dart';
-
-// @RestApi()
-// abstract class CharacterRemoteDataSource {
-//   factory CharacterRemoteDataSource(Dio dio, {String baseUrl}) =
-//       _CharacterRemoteDataSource;
-
-//   @GET("/character")
-//   Future<CharacterListModel> characterList(
-//       {required Map<String, dynamic> queryParameters});
-// }
+import 'package:trumed/features/character/detail/data/models/episode_detail_model.dart';
 
 class CharacterDetailRemoteDataSource {
   ///
@@ -27,9 +16,17 @@ class CharacterDetailRemoteDataSource {
 
   Future<CharacterDetailModel> characterDetail({required int id}) async {
     final response = await dio.get(
-      '$baseUrl/character/2',
+      '$baseUrl/character/$id',
     );
-    print(response.data);
     return CharacterDetailModel.fromJson(response.data);
+  }
+
+  Future<List<EpisodeDetailModel>> episodeDetail(
+      {required String idEpisodes}) async {
+    final response = await dio.get(
+      '$baseUrl/episode/$idEpisodes',
+    );
+
+    return episodeDetailModelFromJson(jsonEncode(response.data));
   }
 }

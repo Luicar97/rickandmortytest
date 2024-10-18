@@ -16,19 +16,20 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DetailCharacterEvent {
+  int get id => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() detailCharacter,
+    required TResult Function(int id) detailCharacter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? detailCharacter,
+    TResult? Function(int id)? detailCharacter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? detailCharacter,
+    TResult Function(int id)? detailCharacter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +49,10 @@ mixin _$DetailCharacterEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $DetailCharacterEventCopyWith<DetailCharacterEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -55,6 +60,8 @@ abstract class $DetailCharacterEventCopyWith<$Res> {
   factory $DetailCharacterEventCopyWith(DetailCharacterEvent value,
           $Res Function(DetailCharacterEvent) then) =
       _$DetailCharacterEventCopyWithImpl<$Res, DetailCharacterEvent>;
+  @useResult
+  $Res call({int id});
 }
 
 /// @nodoc
@@ -67,13 +74,30 @@ class _$DetailCharacterEventCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$DetailCharacterImplCopyWith<$Res> {
+abstract class _$$DetailCharacterImplCopyWith<$Res>
+    implements $DetailCharacterEventCopyWith<$Res> {
   factory _$$DetailCharacterImplCopyWith(_$DetailCharacterImpl value,
           $Res Function(_$DetailCharacterImpl) then) =
       __$$DetailCharacterImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int id});
 }
 
 /// @nodoc
@@ -83,51 +107,76 @@ class __$$DetailCharacterImplCopyWithImpl<$Res>
   __$$DetailCharacterImplCopyWithImpl(
       _$DetailCharacterImpl _value, $Res Function(_$DetailCharacterImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$DetailCharacterImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$DetailCharacterImpl implements _DetailCharacter {
-  const _$DetailCharacterImpl();
+  const _$DetailCharacterImpl(this.id);
+
+  @override
+  final int id;
 
   @override
   String toString() {
-    return 'DetailCharacterEvent.detailCharacter()';
+    return 'DetailCharacterEvent.detailCharacter(id: $id)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DetailCharacterImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$DetailCharacterImpl &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DetailCharacterImplCopyWith<_$DetailCharacterImpl> get copyWith =>
+      __$$DetailCharacterImplCopyWithImpl<_$DetailCharacterImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() detailCharacter,
+    required TResult Function(int id) detailCharacter,
   }) {
-    return detailCharacter();
+    return detailCharacter(id);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? detailCharacter,
+    TResult? Function(int id)? detailCharacter,
   }) {
-    return detailCharacter?.call();
+    return detailCharacter?.call(id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? detailCharacter,
+    TResult Function(int id)? detailCharacter,
     required TResult orElse(),
   }) {
     if (detailCharacter != null) {
-      return detailCharacter();
+      return detailCharacter(id);
     }
     return orElse();
   }
@@ -162,7 +211,14 @@ class _$DetailCharacterImpl implements _DetailCharacter {
 }
 
 abstract class _DetailCharacter implements DetailCharacterEvent {
-  const factory _DetailCharacter() = _$DetailCharacterImpl;
+  const factory _DetailCharacter(final int id) = _$DetailCharacterImpl;
+
+  @override
+  int get id;
+  @override
+  @JsonKey(ignore: true)
+  _$$DetailCharacterImplCopyWith<_$DetailCharacterImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -171,7 +227,9 @@ mixin _$DetailCharacterState {
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(CharacterDetailEntity character,
+            List<EpisodeDetailEntity>? listEpisodes)
+        success,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -179,7 +237,9 @@ mixin _$DetailCharacterState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(CharacterDetailEntity character,
+            List<EpisodeDetailEntity>? listEpisodes)?
+        success,
     TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -187,7 +247,9 @@ mixin _$DetailCharacterState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(CharacterDetailEntity character,
+            List<EpisodeDetailEntity>? listEpisodes)?
+        success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -278,7 +340,9 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(CharacterDetailEntity character,
+            List<EpisodeDetailEntity>? listEpisodes)
+        success,
     required TResult Function(String error) error,
   }) {
     return inital();
@@ -289,7 +353,9 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(CharacterDetailEntity character,
+            List<EpisodeDetailEntity>? listEpisodes)?
+        success,
     TResult? Function(String error)? error,
   }) {
     return inital?.call();
@@ -300,7 +366,9 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(CharacterDetailEntity character,
+            List<EpisodeDetailEntity>? listEpisodes)?
+        success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -392,7 +460,9 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(CharacterDetailEntity character,
+            List<EpisodeDetailEntity>? listEpisodes)
+        success,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -403,7 +473,9 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(CharacterDetailEntity character,
+            List<EpisodeDetailEntity>? listEpisodes)?
+        success,
     TResult? Function(String error)? error,
   }) {
     return loading?.call();
@@ -414,7 +486,9 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(CharacterDetailEntity character,
+            List<EpisodeDetailEntity>? listEpisodes)?
+        success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -471,6 +545,10 @@ abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {CharacterDetailEntity character,
+      List<EpisodeDetailEntity>? listEpisodes});
 }
 
 /// @nodoc
@@ -480,36 +558,82 @@ class __$$SuccessImplCopyWithImpl<$Res>
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? character = null,
+    Object? listEpisodes = freezed,
+  }) {
+    return _then(_$SuccessImpl(
+      null == character
+          ? _value.character
+          : character // ignore: cast_nullable_to_non_nullable
+              as CharacterDetailEntity,
+      freezed == listEpisodes
+          ? _value._listEpisodes
+          : listEpisodes // ignore: cast_nullable_to_non_nullable
+              as List<EpisodeDetailEntity>?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl();
+  const _$SuccessImpl(
+      this.character, final List<EpisodeDetailEntity>? listEpisodes)
+      : _listEpisodes = listEpisodes;
+
+  @override
+  final CharacterDetailEntity character;
+  final List<EpisodeDetailEntity>? _listEpisodes;
+  @override
+  List<EpisodeDetailEntity>? get listEpisodes {
+    final value = _listEpisodes;
+    if (value == null) return null;
+    if (_listEpisodes is EqualUnmodifiableListView) return _listEpisodes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'DetailCharacterState.success()';
+    return 'DetailCharacterState.success(character: $character, listEpisodes: $listEpisodes)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SuccessImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessImpl &&
+            (identical(other.character, character) ||
+                other.character == character) &&
+            const DeepCollectionEquality()
+                .equals(other._listEpisodes, _listEpisodes));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, character,
+      const DeepCollectionEquality().hash(_listEpisodes));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(CharacterDetailEntity character,
+            List<EpisodeDetailEntity>? listEpisodes)
+        success,
     required TResult Function(String error) error,
   }) {
-    return success();
+    return success(character, listEpisodes);
   }
 
   @override
@@ -517,10 +641,12 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(CharacterDetailEntity character,
+            List<EpisodeDetailEntity>? listEpisodes)?
+        success,
     TResult? Function(String error)? error,
   }) {
-    return success?.call();
+    return success?.call(character, listEpisodes);
   }
 
   @override
@@ -528,12 +654,14 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(CharacterDetailEntity character,
+            List<EpisodeDetailEntity>? listEpisodes)?
+        success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success();
+      return success(character, listEpisodes);
     }
     return orElse();
   }
@@ -577,7 +705,14 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements DetailCharacterState {
-  const factory _Success() = _$SuccessImpl;
+  const factory _Success(final CharacterDetailEntity character,
+      final List<EpisodeDetailEntity>? listEpisodes) = _$SuccessImpl;
+
+  CharacterDetailEntity get character;
+  List<EpisodeDetailEntity>? get listEpisodes;
+  @JsonKey(ignore: true)
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -646,7 +781,9 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(CharacterDetailEntity character,
+            List<EpisodeDetailEntity>? listEpisodes)
+        success,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -657,7 +794,9 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(CharacterDetailEntity character,
+            List<EpisodeDetailEntity>? listEpisodes)?
+        success,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -668,7 +807,9 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(CharacterDetailEntity character,
+            List<EpisodeDetailEntity>? listEpisodes)?
+        success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {

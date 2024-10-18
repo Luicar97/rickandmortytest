@@ -6,7 +6,9 @@ import 'package:trumed/core/network/config.dart';
 import 'package:trumed/core/repository/chooser.dart';
 import 'package:trumed/features/character/detail/data/datasource/character_detail_datasouce.dart';
 import 'package:trumed/features/character/detail/data/models/character_detail_model.dart';
+import 'package:trumed/features/character/detail/data/models/episode_detail_model.dart';
 import 'package:trumed/features/character/detail/domain/entity/character_detail_entity.dart';
+import 'package:trumed/features/character/detail/domain/entity/epidode_detail_entity.dart';
 import 'package:trumed/features/character/detail/domain/repository/detail_character_repository.dart';
 import 'package:trumed/features/character/home/data/datasource/character_datasource.dart';
 import 'package:trumed/features/character/home/data/models/character_list_model.dart';
@@ -42,6 +44,27 @@ class CharacterDetailRepositoryImpl implements CharacterDetailRepository {
       final remote = await getChooser() as CharacterDetailModel;
 
       return Right(toEntityCharacterDetailModel(remote));
+    } on Exception {
+      return Left(GeneralFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<EpisodeDetailEntity>?>> episodeDetail(
+      {required String idEpisodes}) {
+    return _episodeDetailOrFail(
+      () =>
+          characterDetailRemoteDataSource.episodeDetail(idEpisodes: idEpisodes),
+    );
+  }
+
+  Future<Either<Failure, List<EpisodeDetailEntity>?>> _episodeDetailOrFail(
+    Chooser getChooser,
+  ) async {
+    try {
+      final remote = await getChooser() as List<EpisodeDetailModel>;
+
+      return Right(toEntityEpisodeDetailModel(remote));
     } on Exception {
       return Left(GeneralFailure());
     }

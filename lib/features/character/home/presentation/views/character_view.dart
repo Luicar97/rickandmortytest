@@ -15,9 +15,10 @@ class CharacterView extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(39, 43, 51, 1),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.white,
         child: const Icon(
           Icons.favorite,
-          color: Colors.red,
+          color: Color.fromRGBO(39, 43, 51, 1),
         ),
         onPressed: () {},
       ),
@@ -26,8 +27,8 @@ class CharacterView extends StatelessWidget {
           ..add(const CharacterListEvent.started()),
         child: Builder(
           builder: (context) {
-            return SingleChildScrollView(
-              child: SafeArea(
+            return SafeArea(
+              child: SingleChildScrollView(
                 child: Column(
                   // mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -76,7 +77,9 @@ class CharacterView extends StatelessWidget {
                             return SizedBox(
                               height: MediaQuery.sizeOf(context).height / 2,
                               child: const Center(
-                                child: CircularProgressIndicator(),
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
+                                ),
                               ),
                             );
                           },
@@ -94,8 +97,10 @@ class CharacterView extends StatelessWidget {
                                     ...data.results.map((result) {
                                       return GestureDetector(
                                         onTap: () {
-                                          Navigator.of(context)
-                                              .pushNamed('/details');
+                                          Navigator.of(context).pushNamed(
+                                            '/details',
+                                            arguments: {'id': result.id},
+                                          );
                                         },
                                         child: CharacterCardWidget(
                                           image: result.image,
