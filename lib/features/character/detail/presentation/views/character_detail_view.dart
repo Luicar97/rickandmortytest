@@ -61,9 +61,23 @@ class CharacterDetailView extends StatelessWidget {
                                     right: 16,
                                     top: 16,
                                     child: Icon(
-                                      Icons.favorite,
+                                      Icons.favorite_border,
                                       color: Colors.red,
                                       size: 40,
+                                    ),
+                                  ),
+                                  Positioned(
+                                    left: 16,
+                                    top: 16,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: const Icon(
+                                        Icons.arrow_back_ios_outlined,
+                                        color: Color.fromRGBO(39, 43, 51, 1),
+                                        size: 40,
+                                      ),
                                     ),
                                   ),
                                 ],
