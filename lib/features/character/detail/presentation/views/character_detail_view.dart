@@ -47,7 +47,7 @@ class CharacterDetailView extends StatelessWidget {
                             )),
                           );
                         },
-                        success: (data, episodes) {
+                        success: (data, episodes, favorite) {
                           return Column(
                             children: [
                               Stack(
@@ -59,13 +59,26 @@ class CharacterDetailView extends StatelessWidget {
                                       fit: BoxFit.contain,
                                     ),
                                   ),
-                                  const Positioned(
+                                  Positioned(
                                     right: 16,
                                     top: 16,
-                                    child: Icon(
-                                      Icons.favorite_border,
-                                      color: Colors.red,
-                                      size: 40,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        context.read<DetailCharacterBloc>().add(
+                                              DetailCharacterEvent.addFavorite(
+                                                data.id,
+                                                data.name,
+                                                data.image,
+                                              ),
+                                            );
+                                      },
+                                      child: Icon(
+                                        favorite != null
+                                            ? Icons.favorite
+                                            : Icons.favorite_border,
+                                        color: Colors.red,
+                                        size: 40,
+                                      ),
                                     ),
                                   ),
                                   Positioned(

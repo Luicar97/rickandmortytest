@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:trumed/core/database/database.dart';
+import 'package:trumed/core/database/models/favorite_database_model.dart';
 import 'package:trumed/features/character/detail/domain/entity/character_detail_entity.dart';
 import 'package:trumed/features/character/detail/domain/entity/epidode_detail_entity.dart';
 import 'package:trumed/features/character/detail/domain/usecase/detail_character_usecase.dart';
@@ -17,18 +19,23 @@ class DetailCharacterBloc
   DetailCharacterBloc(this.characterDetailUsecase)
       : super(const DetailCharacterState.inital()) {
     on<_DetailCharacter>(_detailCharacter);
+    on<_AddFavorite>(_addFavorite);
   }
 
   CharacterDetailUsecase characterDetailUsecase;
+  DatabaseHelper dbHelper = DatabaseHelper();
+  CharacterDetailEntity? characterDetailEntity;
+  List<EpisodeDetailEntity>? listEpisode;
 
   FutureOr<void> _detailCharacter(
       _DetailCharacter event, Emitter<DetailCharacterState> emit) async {
     List<String> idEpisodes = [];
-    CharacterDetailEntity? characterDetailEntity;
 
     emit(const DetailCharacterState.loading());
 
     final response = await characterDetailUsecase.characterDetail(id: event.id);
+
+    FavoriteDatabaseEntity? favorite = await dbHelper.getFavoriteById(event.id);
 
     response.fold((l) {
       emit(const DetailCharacterState.error(''));
@@ -47,10 +54,31 @@ class DetailCharacterBloc
       responseApi.fold((l) {
         emit(const DetailCharacterState.error(''));
       }, (r) {
-        emit(DetailCharacterState.success(characterDetailEntity!, r));
+        listEpisode = r;
+        emit(DetailCharacterState.success(
+            characterDetailEntity!, listEpisode, favorite));
       });
     } else {
-      emit(DetailCharacterState.success(characterDetailEntity!, null));
+      listEpisode = null;
+      emit(DetailCharacterState.success(
+          characterDetailEntity!, listEpisode, favorite));
+    }
+  }
+
+  FutureOr<void> _addFavorite(
+      _AddFavorite event, Emitter<DetailCharacterState> emit) async {
+    emit(const DetailCharacterState.loading());
+
+    FavoriteDatabaseEntity? favorite = await dbHelper.getFavoriteById(event.id);
+
+    if (favorite == null) {
+      dbHelper.insertFavorite(event.id, event.name, event.image);
+      emit(DetailCharacterState.success(characterDetailEntity!, listEpisode,
+          FavoriteDatabaseEntity(characterId: event.id, name: event.name)));
+    } else {
+      dbHelper.deleteFavorite(event.id);
+      emit(DetailCharacterState.success(
+          characterDetailEntity!, listEpisode, null));
     }
   }
 }

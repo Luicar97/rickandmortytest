@@ -6,8 +6,10 @@ class DetailCharacterState with _$DetailCharacterState {
 
   const factory DetailCharacterState.loading() = _Loading;
 
-  const factory DetailCharacterState.success(CharacterDetailEntity character,
-      List<EpisodeDetailEntity>? listEpisodes) = _Success;
+  const factory DetailCharacterState.success(
+      CharacterDetailEntity character,
+      List<EpisodeDetailEntity>? listEpisodes,
+      FavoriteDatabaseEntity? favoriteDatabaseEntity) = _Success;
 
   const factory DetailCharacterState.error(String error) = _Error;
 }

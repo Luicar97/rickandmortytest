@@ -26,13 +26,10 @@ class CharacterRemoteDataSource {
 
   Future<CharacterListModel> characterList(
       {Map<String, dynamic>? params}) async {
-    print(params);
-    print('params');
     final response = await dio.get(
       '$baseUrl/character',
       queryParameters: params,
     );
-    print(response.data);
     return CharacterListModel.fromJson(response.data);
   }
 }
