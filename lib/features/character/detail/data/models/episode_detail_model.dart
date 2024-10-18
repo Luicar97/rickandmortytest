@@ -6,9 +6,11 @@ import 'dart:convert';
 
 import 'package:trumed/features/character/detail/domain/entity/epidode_detail_entity.dart';
 
-List<EpisodeDetailModel> episodeDetailModelFromJson(String str) =>
-    List<EpisodeDetailModel>.from(
-        json.decode(str).map((x) => EpisodeDetailModel.fromJson(x)));
+List<EpisodeDetailModel> episodeDetailModelFromJson(String str) {
+  return List<EpisodeDetailModel>.from(jsonDecode(str).map((x) {
+    return EpisodeDetailModel.fromJson(x);
+  }));
+}
 
 String episodeDetailModelToJson(List<EpisodeDetailModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));

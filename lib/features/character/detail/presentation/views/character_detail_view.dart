@@ -48,12 +48,25 @@ class CharacterDetailView extends StatelessWidget {
                         success: (data, episodes) {
                           return Column(
                             children: [
-                              SizedBox(
-                                width: double.infinity,
-                                child: Image.network(
-                                  data.image,
-                                  fit: BoxFit.contain,
-                                ),
+                              Stack(
+                                children: [
+                                  SizedBox(
+                                    width: double.infinity,
+                                    child: Image.network(
+                                      data.image,
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                  const Positioned(
+                                    right: 16,
+                                    top: 16,
+                                    child: Icon(
+                                      Icons.favorite,
+                                      color: Colors.red,
+                                      size: 40,
+                                    ),
+                                  ),
+                                ],
                               ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(

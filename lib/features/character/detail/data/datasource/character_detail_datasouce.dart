@@ -27,6 +27,8 @@ class CharacterDetailRemoteDataSource {
       '$baseUrl/episode/$idEpisodes',
     );
 
-    return episodeDetailModelFromJson(jsonEncode(response.data));
+    return episodeDetailModelFromJson((idEpisodes.contains(','))
+        ? jsonEncode(response.data)
+        : jsonEncode([response.data]));
   }
 }
