@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:trumed/features/character/favorite/presentation/blocs/character_favorite/character_favorite_bloc.dart';
 import 'package:trumed/widgets/character_card_widget.dart';
+import 'package:trumed/widgets/custom_scaffold_widget.dart';
 import 'package:trumed/widgets/custom_text_title_widget.dart';
 
 class CharacterFavoriteView extends StatelessWidget {
@@ -10,8 +11,7 @@ class CharacterFavoriteView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromRGBO(39, 43, 51, 1),
+    return CustomScaffoldWidget(
       body: SafeArea(
         child: BlocProvider(
           create: (context) => GetIt.I.get<CharacterFavoriteBloc>()

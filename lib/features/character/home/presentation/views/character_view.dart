@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'package:trumed/features/character/home/presentation/blocs/character_list/character_list_bloc.dart';
 import 'package:trumed/widgets/character_card_widget.dart';
 import 'package:trumed/widgets/custom_pagination_widget.dart';
+import 'package:trumed/widgets/custom_scaffold_widget.dart';
 import 'package:trumed/widgets/custom_text_field_widget.dart';
 import 'package:trumed/widgets/custom_text_title_widget.dart';
 
@@ -12,18 +13,8 @@ class CharacterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromRGBO(39, 43, 51, 1),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.white,
-        child: const Icon(
-          Icons.favorite,
-          color: Color.fromRGBO(39, 43, 51, 1),
-        ),
-        onPressed: () {
-          Navigator.pushNamed(context, '/favorite');
-        },
-      ),
+    return CustomScaffoldWidget(
+      favoritePage: true,
       body: BlocProvider(
         create: (context) => GetIt.I.get<CharacterListBloc>()
           ..add(const CharacterListEvent.started()),

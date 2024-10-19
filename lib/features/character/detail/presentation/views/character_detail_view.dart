@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:trumed/features/character/detail/presentation/blocs/detail_character/detail_character_bloc.dart';
+import 'package:trumed/widgets/custom_scaffold_widget.dart';
 import 'package:trumed/widgets/custom_text_title_widget.dart';
 
 class CharacterDetailView extends StatelessWidget {
@@ -12,18 +13,8 @@ class CharacterDetailView extends StatelessWidget {
     final argument =
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
 
-    return Scaffold(
-      backgroundColor: const Color.fromRGBO(39, 43, 51, 1),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.white,
-        child: const Icon(
-          Icons.favorite,
-          color: Color.fromRGBO(39, 43, 51, 1),
-        ),
-        onPressed: () {
-          Navigator.pushNamed(context, '/favorite');
-        },
-      ),
+    return CustomScaffoldWidget(
+      favoritePage: true,
       body: BlocProvider(
         create: (context) => GetIt.I.get<DetailCharacterBloc>()
           ..add(DetailCharacterEvent.detailCharacter(argument['id'])),
@@ -117,7 +108,9 @@ class CharacterDetailView extends StatelessWidget {
                                           width: 10,
                                           height: 10,
                                           decoration: BoxDecoration(
-                                            color: Colors.green,
+                                            color: (data.status == 'Alive')
+                                                ? Colors.green
+                                                : Colors.red,
                                             borderRadius:
                                                 BorderRadius.circular(50),
                                           ),

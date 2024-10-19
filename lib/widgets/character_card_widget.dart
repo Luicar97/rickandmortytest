@@ -84,7 +84,8 @@ class CharacterCardWidget extends StatelessWidget {
                         width: 10,
                         height: 10,
                         decoration: BoxDecoration(
-                          color: Colors.green,
+                          color:
+                              (status == 'Alive') ? Colors.green : Colors.red,
                           borderRadius: BorderRadius.circular(50),
                         ),
                       ),
