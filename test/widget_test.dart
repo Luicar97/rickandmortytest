@@ -7,23 +7,36 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:trumed/app.dart';
+import 'package:trumed/core/di/injector.dart';
+import 'package:trumed/features/character/home/presentation/views/character_view.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const AppView());
+  setUp(() {
+    configureDependencies();
+  });
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  final search = find.byKey(const ValueKey('search'));
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+  testWidgets('Buscador', (WidgetTester tester) async {
+    await tester.pumpWidget(const MaterialApp(
+      home: Scaffold(
+        body: CharacterView(),
+      ),
+    ));
+
+    expect(find.text(''), findsOneWidget);
+
+    await tester.enterText(search, 'Rick Sanchez');
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Rick Sanchez'), findsOneWidget);
+
+    await tester.tap(search);
+    await tester.pump();
+
+    await tester.enterText(search, '');
+    await tester.pump();
+
+    expect(find.text(''), findsOneWidget);
   });
 }

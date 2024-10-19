@@ -11,6 +11,7 @@ class CustomTextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      key: const Key('search'),
       decoration: const InputDecoration(
         border: OutlineInputBorder(),
       ),

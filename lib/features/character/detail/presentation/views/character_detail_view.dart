@@ -64,6 +64,7 @@ class CharacterDetailView extends StatelessWidget {
                                             );
                                       },
                                       child: Icon(
+                                        key: const Key('favorite'),
                                         favorite != null
                                             ? Icons.favorite
                                             : Icons.favorite_border,

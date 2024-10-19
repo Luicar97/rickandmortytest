@@ -95,11 +95,14 @@ class CharacterView extends StatelessWidget {
                                             arguments: {'id': result.id},
                                           );
                                         },
-                                        child: CharacterCardWidget(
-                                          image: result.image,
-                                          species: result.species,
-                                          name: result.name,
-                                          status: result.status,
+                                        child: Container(
+                                          key: Key(result.id.toString()),
+                                          child: CharacterCardWidget(
+                                            image: result.image,
+                                            species: result.species,
+                                            name: result.name,
+                                            status: result.status,
+                                          ),
                                         ),
                                       );
                                     }),
