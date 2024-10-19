@@ -10,8 +10,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
     databaseFactory = databaseFactoryFfiWeb;
-  } else {
-    databaseFactory = databaseFactoryFfi;
   }
   configureDependencies();
   await DatabaseHelper().database;
