@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:trumed/features/character/home/presentation/blocs/character_list/character_list_bloc.dart';
-import 'package:trumed/features/character/home/presentation/widgets/character_card_widget.dart';
+import 'package:trumed/widgets/character_card_widget.dart';
 import 'package:trumed/widgets/custom_pagination_widget.dart';
 import 'package:trumed/widgets/custom_text_field_widget.dart';
 import 'package:trumed/widgets/custom_text_title_widget.dart';

@@ -6,9 +6,8 @@ class CharacterFavoriteState with _$CharacterFavoriteState {
 
   const factory CharacterFavoriteState.loading() = _Loading;
 
-  const factory CharacterFavoriteState.success() = _Success;
-
-  const factory CharacterFavoriteState.updateFavorite() = _UpdateFavorite;
+  const factory CharacterFavoriteState.success(
+      List<FavoriteDatabaseEntity> data) = _Success;
 
   const factory CharacterFavoriteState.error(String error) = _Error;
 }

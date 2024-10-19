@@ -73,8 +73,14 @@ class DetailCharacterBloc
 
     if (favorite == null) {
       dbHelper.insertFavorite(event.id, event.name, event.image);
-      emit(DetailCharacterState.success(characterDetailEntity!, listEpisode,
-          FavoriteDatabaseEntity(characterId: event.id, name: event.name)));
+      emit(
+        DetailCharacterState.success(
+          characterDetailEntity!,
+          listEpisode,
+          FavoriteDatabaseEntity(
+              characterId: event.id, name: event.name, image: event.image),
+        ),
+      );
     } else {
       dbHelper.deleteFavorite(event.id);
       emit(DetailCharacterState.success(
