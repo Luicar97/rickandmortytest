@@ -11,7 +11,7 @@ class AppView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'PendWenz Demo',
+      title: 'Rick And Morty',
       theme: AppTheme.commonTheme,
       routes: {
         '/': (context) => const CharacterView(),
